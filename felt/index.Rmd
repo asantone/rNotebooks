@@ -30,8 +30,9 @@ feltG<-c(22.5,23.8,24.2,24.6,24.8,25.2,25.7,26.1,25.9,26.2,26.8) #temperature se
 feltB<-c(22.3,24.1,24.7,25.4,25.9,26.5,27.3,28.5,28.9,29.3,30.4) #temperature series of the black felt
 timeMin<-c(0,0.5,1.0,1.5,2.0,2.5,3.0,3.5,4.0,4.5,5.0) #time series in minutes
 dt<-data.frame(timeMin,feltW,feltG,feltB)
+colnames(dt)<-c("time (minutes)", "white felt", "grey felt", "black felt")
 ```
-Data should be collected and arranged in a notebook similar to the following table.
+Temperature data should be recorded in Celcius and arranged in a notebook similar to the following table.
 
 ```{r, echo=FALSE,message=FALSE, warning=FALSE}
 kable(dt) %>% kable_styling(full_width = F)
@@ -239,3 +240,4 @@ legend("topleft",                                                              #
 
 ### Conclusion
 That's it! We've successfully set up a demonstration, measured, collected, and visualized data. What can we conclude? How do the different colors respond to the same source of radiation within the same time frame? 
+
