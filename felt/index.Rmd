@@ -10,6 +10,7 @@ output:
 knitr::opts_chunk$set(fig.align="center",message=FALSE, warning=FALSE)
 library(knitr)
 library(kableExtra)
+library(tikzDevice)
 ```
 
 ## Introduction
@@ -60,6 +61,8 @@ plot(timeMin,feltB)
 ```
 
 ### Creating a Nice Visualization
+To create a nice visualization, we'll want to do a few things: represent all three series on the same plot, ensure each series is distinct, and add accurate labels to the axes. We'll also need a descriptive title and a legend to clarify what data we are representing. One last thing we will do is adjust our Y axis to start at zero. A little attention to detail and we'll be done with our enhanced view of our data.
+
 First, we create a simple plot with the first series (white felt).
 ```{r}
 #First plot layer
@@ -70,7 +73,7 @@ plot(timeMin,                                           #X axis data
      bg="white",                                        #point fill color 
      type="o",                                          #line graph style (line with data points) 
      lty=2,                                             #line graph style (dashed) 
-     ylim=c(20,32),                                     #Y axis lower and upper limits
+     ylim=c(0,32),                                     #Y axis lower and upper limits
      ylab="Temperature (°C)",                           #Y axis label
      xlab="Time (minutes)",                             #X axis label 
      main="Comparison of Felt Temperatures over Time"   #Plot title
@@ -87,7 +90,7 @@ plot(timeMin,                                           #X axis data
      bg="white",                                        #point fill color 
      type="o",                                          #line graph style (line with data points) 
      lty=2,                                             #line graph style (dashed) 
-     ylim=c(20,32),                                     #Y axis lower and upper limits
+     ylim=c(0,32),                                     #Y axis lower and upper limits
      ylab="Temperature (°C)",                           #Y axis label
      xlab="Time (minutes)",                             #X axis label 
      main="Comparison of Felt Temperatures over Time"   #Plot title
@@ -114,7 +117,7 @@ plot(timeMin,                                           #X axis data
      bg="white",                                        #point fill color 
      type="o",                                          #line graph style (line with data points) 
      lty=2,                                             #line graph style (dashed) 
-     ylim=c(20,32),                                     #Y axis lower and upper limits
+     ylim=c(0,32),                                     #Y axis lower and upper limits
      ylab="Temperature (°C)",                           #Y axis label
      xlab="Time (minutes)",                             #X axis label 
      main="Comparison of Felt Temperatures over Time"   #Plot title
@@ -151,7 +154,7 @@ plot(timeMin,                                           #X axis data
      bg="white",                                        #point fill color 
      type="o",                                          #line graph style (line with data points) 
      lty=2,                                             #line graph style (dashed) 
-     ylim=c(20,32),                                     #Y axis lower and upper limits
+     ylim=c(0,32),                                     #Y axis lower and upper limits
      ylab="Temperature (°C)",                           #Y axis label
      xlab="Time (minutes)",                             #X axis label 
      main="Comparison of Felt Temperatures over Time"   #Plot title
@@ -178,7 +181,7 @@ points(timeMin,        #X axis data
        )
 
 #add background lines for clarity in interpretation
-abline(h=seq(20,32,by=2), #create a numeric sequence from 20 to 32 at each second value (20, 22, 24,..32)
+abline(h=seq(0,32,by=2), #create a numeric sequence from 20 to 32 at each second value (20, 22, 24,..32)
        lty=3,             #line graph style (dashed, small)
        col="lightgrey"    #line color
        )
@@ -194,7 +197,7 @@ plot(timeMin,                                           #X axis data
      bg="white",                                        #point fill color 
      type="o",                                          #line graph style (line with data points) 
      lty=2,                                             #line graph style (dashed) 
-     ylim=c(20,32),                                     #Y axis lower and upper limits
+     ylim=c(0,32),                                     #Y axis lower and upper limits
      ylab="Temperature (°C)",                           #Y axis label
      xlab="Time (minutes)",                             #X axis label 
      main="Comparison of Felt Temperatures over Time"   #Plot title
@@ -221,7 +224,7 @@ points(timeMin,        #X axis data
        )
 
 #add background lines for clarity in interpretation
-abline(h=seq(20,32,by=2), #create a numeric sequence from 20 to 32 at each second value (20, 22, 24,..32)
+abline(h=seq(0,32,by=2), #create a numeric sequence from 20 to 32 at each second value (20, 22, 24,..32)
        lty=3,             #line graph style (dashed, small)
        col="lightgrey"    #line color
        )
